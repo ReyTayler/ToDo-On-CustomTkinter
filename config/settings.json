@@ -1,0 +1,51 @@
+{
+  "title": "Список дел",
+  "set_theme_mode": "light",
+
+  "top_image": "Images/top.png",
+
+  "win_width": 600,
+  "win_height": 700,
+
+  "header":
+  {
+    "text": "Мои дела",
+    "font": ["Arial", 48, "bold"],
+    "text_color": "white",
+    "fg_color": "#42B4FB"
+  },
+
+  "icon_image": "Images/task.png",
+
+  "entry_frame":
+  {
+    "height": 40,
+    "fg_color": "transparent"
+  },
+
+  "add_button_img": "Images/add_button.png",
+
+  "add_button":
+  {
+    "corner_radius": 19,
+    "text": "Добавить",
+    "font": ["Arial", 18, "bold"],
+    "compound": "right"
+  },
+
+  "todo_entry":
+  {
+    "corner_radius": 19,
+    "font": ["Arial", 20, "bold"]
+  },
+
+  "delete_button_img": "Images/delete.png",
+
+  "delete_button":
+  {
+    "text": "Удалить выбранное",
+    "font": ["Arial", 20, "bold"],
+    "fg_color": "#956B11",
+    "hover_color":"#CA8383"
+  }
+}
