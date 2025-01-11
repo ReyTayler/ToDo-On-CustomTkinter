@@ -51,3 +51,27 @@ def delete_todo(todo_frame):
     current_data = js_base.load_data()
     # Обновляем список всех дел в фрейме
     todo_frame.show_list(current_data)
+
+
+def delete_all_todo(todo_frame):
+    global current_data
+
+    # Список ключей записей, который удалим
+    keys = []
+    # Пробегаемся по каждому чекбоксу в скроллинг-фрейме
+    for check in todo_frame.checkbox_list:
+        # Из чекбокса выделяем первые 20 символов (это дата и время)
+        del_key = check.cget("text")[:20]
+        # Добавляем полученную строку символов в список ключей
+        keys.append(del_key)
+
+    # Удаляем все записи дел
+    js_base.delete_todo(current_data, keys)
+
+    # Стираем список всех дел с фрейма
+    for widget in todo_frame.pack_slaves():
+        widget.pack_forget()
+
+    current_data = js_base.load_data()
+    # Обновляем список всех дел в фрейме
+    todo_frame.show_list(current_data)

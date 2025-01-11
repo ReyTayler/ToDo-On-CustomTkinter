@@ -84,9 +84,16 @@ class ToDoListApp(CTk):
                                        fg_color=setting["delete_button"]["fg_color"],
                                        hover_color=setting["delete_button"]["hover_color"], command=self.delete)
 
+        self.delete_all_btn = CTkButton(master=self,
+                                        text='Удалить всё',
+                                        font=("Arial", 20, "bold"),
+                                        fg_color='#956B11',
+                                        command=self.delete_all)
+
         # Размещаем кнопку "Удалить выбранное" в самом низу интерфейса
         self.delete_button.pack(side=BOTTOM, pady=5)
-
+        # Размещаем кнопку "Удалить всё"
+        self.delete_all_btn.pack(side=BOTTOM)
         # Размещаем скролинг-фрейм для записей в самом низу интерфейса перед кнопкой "Удалить выбранное"
         self.list.pack(side=BOTTOM, padx=10, fill=X)
 
@@ -110,6 +117,9 @@ class ToDoListApp(CTk):
     def delete(self):
         controller.delete_todo(self.list)
 
+    def delete_all(self):
+        controller.delete_all_todo(self.list)
+
 
 class ToDoScrollableFrame(CTkScrollableFrame):
     def __init__(self, window, list_item):
@@ -132,6 +142,5 @@ class ToDoScrollableFrame(CTkScrollableFrame):
             # Добавляем созданный чекбокс в список чекбоксов
             self.checkbox_list.append(checkbox)
 
-
-#app = ToDoListApp()  # Создаём экземпляр класса нашего окна
-#app.mainloop()  # Запускаем жизненный цикл для этого окна
+# app = ToDoListApp()  # Создаём экземпляр класса нашего окна
+# app.mainloop()  # Запускаем жизненный цикл для этого окна
